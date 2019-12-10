@@ -1,0 +1,33 @@
+<ion-header>
+</ion-header>
+
+<ion-content padding class="bg-class">
+
+
+  <ion-grid style="height: 100%">
+    <ion-row justify-content-center style="height: 100%; flex-direction: column">
+      <div class="ion-padding">
+        <ion-icon style="width: 100%" class="iconSize" color="light" name="person"></ion-icon>
+      </div>
+
+      <ion-list lines="full" class="ion-no-margin ion-no-padding">
+
+        <ion-item>
+          <ion-input required type="text" minlength="3" maxlength="16" placeholder="Username"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input required type="password" minlength="3" maxlength="16" placeholder="Password"></ion-input>
+        </ion-item>
+
+      </ion-list>
+
+
+      <div class="ion-padding">
+        <ion-button expand="block" color="light" fill="clear" shape="round">LOGIN</ion-button>
+        <ion-button expand="block" color="light" fill="clear" shape="round" routerLink="/signup/" routerDirection="forward">SIGNUP</ion-button>
+      </div>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
