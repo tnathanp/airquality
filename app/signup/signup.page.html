@@ -16,11 +16,10 @@
           </ion-item>
   
           <ion-item>
-            <ion-input required type="password" maxlength="16" placeholder="Password" [(ngModel)]="pwd" disabled="{{isSending}}"></ion-input>
+            <ion-input required type="text" maxlength="16" placeholder="Password" [(ngModel)]="pwd" disabled="{{isSending}}"></ion-input>
           </ion-item>
   
         </ion-list>
-  
   
         <div class="ion-padding">
           <ion-button expand="block" color="light" fill="clear" shape="round" (click)="register(usr,pwd)" disabled="{{isSending}}">SIGN UP</ion-button>
