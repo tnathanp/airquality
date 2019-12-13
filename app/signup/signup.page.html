@@ -12,18 +12,18 @@
         <ion-list lines="full" class="ion-no-margin ion-no-padding">
   
           <ion-item>
-            <ion-input required type="text" minlength="3" maxlength="16" placeholder="Username" [(ngModel)]="usr"></ion-input>
+            <ion-input required type="text" maxlength="16" placeholder="Username" [(ngModel)]="usr" disabled="{{isSending}}"></ion-input>
           </ion-item>
   
           <ion-item>
-            <ion-input required type="password" minlength="3" maxlength="16" placeholder="Password" [(ngModel)]="pwd"></ion-input>
+            <ion-input required type="password" maxlength="16" placeholder="Password" [(ngModel)]="pwd" disabled="{{isSending}}"></ion-input>
           </ion-item>
   
         </ion-list>
   
   
         <div class="ion-padding">
-          <ion-button expand="block" color="light" fill="clear" shape="round" (click)="register(usr,pwd)">SIGN UP</ion-button>
+          <ion-button expand="block" color="light" fill="clear" shape="round" (click)="register(usr,pwd)" disabled="{{isSending}}">SIGN UP</ion-button>
         </div>
       </ion-row>
     </ion-grid>
