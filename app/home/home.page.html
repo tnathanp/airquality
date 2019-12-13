@@ -1,11 +1,36 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-       Air Quality
+      Air Quality
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="bg-class5" >
-  <ion-searchbar animated type="text"></ion-searchbar>
+<ion-content class="bg-class5">
+  <ion-item>
+    <ion-searchbar showCancelButton="focus" [(ngModel)]="query" (keyup)="Search($event)" ></ion-searchbar>
+  </ion-item>
+  <div *ngIf="data | async as dt ">
+    <ion-label class="header">Cities</ion-label>   
+    <ion-list>
+        <ion-item *ngFor="let item of dt.cities" (click)="eiei(item.id)">
+          <ion-text>              
+            <p>{{ item.name }}</p>
+          </ion-text>
+        </ion-item>
+    </ion-list>
+    <ion-label>Places</ion-label>
+    <ion-list>
+      <ion-item *ngFor="let item of dt.stations" >
+          <ion-text>
+              <p>{{ item.name }}</p>
+            </ion-text>
+      </ion-item>
+    </ion-list>
+  </div>
+  <!--<div *ngIf="data | async as dt ">
+    <div *ngFor="let item of dt.stations">
+    <ion-card>{{item.name}}</ion-card>
+    </div>
+  </div>-->
 </ion-content>
