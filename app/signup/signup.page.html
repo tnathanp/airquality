@@ -4,7 +4,7 @@
 <ion-content padding class="bg-class">
     <ion-button color="light" fill="clear" shape="round" routerLink="/tabs/user/" routerDirection="back">BACK</ion-button>
     <ion-grid style="height: 70%">
-      <ion-row justify-content-center style="height: 100%; flex-direction: column">
+      <ion-row class="ion-justify-content-center" style="height: 100%; flex-direction: column">
         <div class="ion-padding">
             <ion-icon style="width: 100%" class="iconSize" color="light" name="contacts"></ion-icon>
         </div>
@@ -12,18 +12,18 @@
         <ion-list lines="full" class="ion-no-margin ion-no-padding">
   
           <ion-item>
-            <ion-input required type="text" minlength="3" maxlength="16" placeholder="Username"></ion-input>
+            <ion-input required type="text" minlength="3" maxlength="16" placeholder="Username" [(ngModel)]="usr"></ion-input>
           </ion-item>
   
           <ion-item>
-            <ion-input required type="password" minlength="3" maxlength="16" placeholder="Password"></ion-input>
+            <ion-input required type="password" minlength="3" maxlength="16" placeholder="Password" [(ngModel)]="pwd"></ion-input>
           </ion-item>
   
         </ion-list>
   
   
         <div class="ion-padding">
-          <ion-button expand="block" color="light" fill="clear" shape="round">SIGN UP</ion-button>
+          <ion-button expand="block" color="light" fill="clear" shape="round" (click)="register(usr,pwd)">SIGN UP</ion-button>
         </div>
       </ion-row>
     </ion-grid>
