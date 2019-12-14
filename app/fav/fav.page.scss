@@ -1,1 +1,66 @@
+.selecter {
+  max-width: 100% !important;
+  width: 100% !important;
+  right: auto !important;
+  direction: ltr !important;
+  padding-left: 0 !important;
+}
 
+.default {
+  background: linear-gradient(-45deg, #3ab5b0, #3d99be, #56317a);
+  background-size: 200% 200%;
+  animation: FadeAnimation 10s ease infinite;
+  width: 100%;
+  height: 100%;
+}
+.level1 {
+  background: radial-gradient(circle farthest-corner at 10% 20%, rgba(4, 159, 108, 1) 0%, rgba(194, 254, 113, 1) 90.1%);
+  background-size: 200% 200%;
+  animation: FadeAnimation 5s ease infinite;
+  width: 100%;
+  height: 100%;
+}
+
+.level2 {
+  background: linear-gradient(-45deg, rgba(255, 230, 69, 1) 3.3%, rgba(255, 157, 73, 1) 96%);
+  background-size: 200% 200%;
+  animation: FadeAnimation 5s ease infinite;
+  width: 100%;
+  height: 100%;
+}
+
+.level3 {
+  background: radial-gradient(circle farthest-corner at 10% 20%, rgba(228, 118, 0, 1) 0%, rgba(247, 189, 2, 1) 90%);
+  background-size: 200% 200%;
+  animation: FadeAnimation 5s ease infinite;
+  width: 100%;
+  height: 100%;
+}
+
+.level4 {
+  background: linear-gradient(110.1deg, rgba(241, 115, 30, 1) 18.9%, rgba(231, 29, 54, 1) 90.7%);
+  background-size: 200% 200%;
+  animation: FadeAnimation 5s ease infinite;
+  width: 100%;
+  height: 100%;
+}
+
+.level5 {
+  background: radial-gradient(circle farthest-corner at 10% 20%, rgba(210, 36, 129, 1) 0%, rgba(152, 75, 215, 1) 90%);
+  background-size: 200% 200%;
+  animation: FadeAnimation 5s ease infinite;
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes FadeAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

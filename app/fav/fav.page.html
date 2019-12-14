@@ -1,10 +1,59 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar *ngIf="!isLogin">
     <ion-title>
       Places
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding" *ngIf="!isLogin">
+  <ion-grid style="height: 100%" *ngIf="!isLogin">
+    <ion-row class="ion-justify-content-center" style="height: 100%; flex-direction: column">
+
+      <div class="ion-padding">
+        <ion-icon style="width: 100%; font-size: 80px" color="medium" name="sad"></ion-icon>
+      </div>
+
+      <div class="ion-padding" style="text-align: center;">
+        <ion-text style="font-size: 16px" color="medium">Please login first to use our fabulous feature.</ion-text>
+      </div>
+
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<ion-content *ngIf="isLogin">
+  <div [ngClass]="level">
+
+    <ion-grid style="height: 100%">
+
+        <ion-row class="ion-justify-content-center" style="height: 100%; flex-direction: column" *ngIf="isLoading">
+          <ion-spinner style="width: 100%" name="crescent" color="light"></ion-spinner>
+        </ion-row>
+
+        <ion-row class="ion-justify-content-center" style="height: 100%; flex-direction: column;" *ngIf="!isAdded && !isLoading">
+          <div class="ion-padding">
+            <ion-icon style="width: 100%; font-size: 80px" color="light" name="navigate"></ion-icon>
+          </div>
+          <div class="ion-padding" style="text-align: center;">
+            <ion-text style="font-size: 16px" color="light">It looks like you haven't <br>added any places yet.
+            </ion-text>
+          </div>
+        </ion-row>
+
+        <ion-row class="ion-justify-content-center" style="flex-direction: column; padding-top: 20px" *ngIf="isAdded && !isLoading">
+          <div class="ion-padding" style="text-align: center;">
+            <ion-list>
+              <ion-item>
+                <ion-select interface="popover" class="selecter" [(ngModel)]="location" (ionChange)="showData(location)">
+                  <ion-select-option *ngFor="let item of (return | async)?.places" value="{{item.id}},{{item.types}}">{{item.name}}</ion-select-option>
+                </ion-select>
+              </ion-item>
+            </ion-list>
+            <p>value, {{aqi}}</p>
+          </div>
+        </ion-row>
+
+    </ion-grid>
+  </div>
 </ion-content>

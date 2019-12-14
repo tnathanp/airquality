@@ -1,11 +1,26 @@
-.bg-class{
-    --background: linear-gradient(to top, #3a1c71, #d76d77, #ffaf7b) !important;
-  }
+.bg-class {
+  --background: linear-gradient(to top, #3a1c71, #d76d77, #ffaf7b) !important;
+}
 
-.decorate{
-    --background: transparent;
+.decorate {
+  --background: transparent;
 }
 
 .iconSize {
-    font-size: 64px;
+  font-size: 64px;
+}
+
+.iconLogged {
+  width: 100%;
+  font-size: 80px;
+  animation: rotation 60s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    -webkit-transform: rotate(0deg);
   }
+  to {
+    -webkit-transform: rotate(359deg);
+  }
+}
