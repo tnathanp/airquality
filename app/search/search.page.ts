@@ -9,6 +9,8 @@ import { Observable } from 'rxjs';
 })
 export class SearchPage implements OnInit {
 
+  query: string;
+
   constructor(public httpClient: HttpClient) { }
 
   ngOnInit() {
