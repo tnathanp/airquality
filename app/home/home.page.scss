@@ -3,27 +3,27 @@
   overflow: hidden;
 }
 
-.bg-class1{
+.bg-class1 {
   --background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%) !important;
 }
 
-.bg-class2{
+.bg-class2 {
   --background: linear-gradient(to top, #f6d365 0%, #f09819 100%) !important;
 }
 
-.bg-class3{
+.bg-class3 {
   --background: linear-gradient(-60deg, #ff5858 0%, #f09819 100%) !important;
 }
 
-.bg-class4{
+.bg-class4 {
   --background: linear-gradient(to top, #ff0844 0%, #ffb199 100%) !important;
 }
 
-.bg-class5{
-  --background: linear-gradient(to top,#7028e4 0%, #e5b2ca 100%) !important;
+.bg-class5 {
+  --background: linear-gradient(to top, #7028e4 0%, #e5b2ca 100%) !important;
 }
 
-.decorate{
+.decorate {
   --background: transparent;
 }
 
@@ -32,5 +32,6 @@ ion-toolbar {
   --ion-color-base: transparent !important;
 }
 
-
-
+ion-content {
+  --overflow: hidden;
+}

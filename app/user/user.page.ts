@@ -13,6 +13,8 @@ export class UserPage {
   isSending: boolean = false;
   isLogin: boolean = false;
   account: string = '';
+  usr: string;
+  pwd: string;
 
   constructor(public httpClient: HttpClient, public toast: ToastController) { }
 

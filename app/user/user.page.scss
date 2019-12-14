@@ -1,5 +1,5 @@
 .bg-class {
-  --background: linear-gradient(to top, #3a1c71, #d76d77, #ffaf7b) !important;
+  --background: linear-gradient(to top, #3a1c71, #d76d77, #ffaf7b);
 }
 
 .decorate {
@@ -23,4 +23,8 @@
   to {
     -webkit-transform: rotate(359deg);
   }
+}
+
+ion-content {
+  --overflow: hidden;
 }

@@ -1,5 +1,5 @@
 .bg-class {
-  --background: linear-gradient(to top, #30cfd0, #330867) !important;
+  --background: linear-gradient(to top, #30cfd0, #330867);
 }
 
 .decorate {
@@ -8,4 +8,8 @@
 
 .iconSize {
   font-size: 64px;
+}
+
+ion-content {
+  --overflow: hidden;
 }

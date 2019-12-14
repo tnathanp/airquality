@@ -41,12 +41,12 @@
           </div>
         </ion-row>
 
-        <ion-row class="ion-justify-content-center" style="flex-direction: column; padding-top: 20px" *ngIf="isAdded && !isLoading">
+        <ion-row class="ion-justify-content-center" style="flex-direction: column; padding-top: 40px" *ngIf="isAdded && !isLoading">
           <div class="ion-padding" style="text-align: center;">
             <ion-list>
               <ion-item>
-                <ion-select interface="popover" class="selecter" [(ngModel)]="location" (ionChange)="showData(location)">
-                  <ion-select-option *ngFor="let item of (return | async)?.places" value="{{item.id}},{{item.types}}">{{item.name}}</ion-select-option>
+                <ion-select interface="popover" class="selecter" [(ngModel)]="location" (ionChange)="showData(location)" [selectedText]="selected">
+                  <ion-select-option *ngFor="let item of (return | async)?.places" value="{{item.id}},{{item.types}},{{item.name}}">{{item.name}}</ion-select-option>
                 </ion-select>
               </ion-item>
             </ion-list>

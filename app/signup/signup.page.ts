@@ -11,6 +11,8 @@ import { HttpClient } from '@angular/common/http'
 export class SignupPage implements OnInit {
 
   isSending: boolean;
+  usr: string;
+  pwd: string;
 
   ngOnInit() {
     this.isSending = false;

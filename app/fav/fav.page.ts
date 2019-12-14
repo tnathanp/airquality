@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http'
 
@@ -15,16 +15,23 @@ export class FavPage {
   account: string = '';
   level: string = 'default';
   aqi: number = 0;
+  location: string;
+  selected: string = '';
 
   constructor(public httpClient: HttpClient) { }
 
   return: Observable<any>;
   fetch: Observable<any>;
 
+  ngOnInit() {
+    localStorage.setItem("selected",'');
+  }
+
   ionViewWillEnter() {
     this.isLoading = true;
     this.isLogin = JSON.parse(localStorage.getItem("isLogin"));
     this.account = localStorage.getItem("isLoginAs");
+    this.selected = localStorage.getItem("selected");
     this.return = this.httpClient.get("http://airqualityapi.herokuapp.com/fetchplaces?username=" + this.account);
     this.return.subscribe(
       resp => {
@@ -40,6 +47,8 @@ export class FavPage {
   showData(param: string) {
     var id = param.split(',')[0];
     var types = param.split(',')[1];
+    this.selected = param.split(',')[2];
+    localStorage.setItem("selected",this.selected);
     this.fetch = this.httpClient.get("http://airqualityapi.herokuapp.com/fetch?q=" + id + "&t=" + types);
     this.fetch.subscribe(
       resp => {
