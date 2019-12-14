@@ -50,9 +50,9 @@ export class HomePage implements OnInit {
     this.data.subscribe(
       resp => {
         this.name = resp.breadcrumbs[resp.breadcrumbs.length - 1].label;
-        if (this.name.split(' ').length >= 4) {
+        if (this.name.split(' ').length >= 6) {
           var temp = this.name.split(' ');
-          this.name = temp[0] + " " + temp[1] + " ... " + temp[temp.length - 1];
+          this.name = temp[0] + " " + temp[1] + " " + temp[2] + " ... " + temp[temp.length - 2] + " " + temp[temp.length - 1];
         }
         var aqi = resp.current.aqi;
         this.aqi = aqi;

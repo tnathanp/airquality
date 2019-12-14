@@ -66,6 +66,7 @@ export class UserPage {
   logout(){
     localStorage.setItem("isLoginAs",'');
     localStorage.setItem("isLogin","false");
+    localStorage.setItem("selected","");
     this.account = '';
     this.isLogin = false;
   }
