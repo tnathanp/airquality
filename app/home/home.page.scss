@@ -3,43 +3,80 @@
   overflow: hidden;
 }
 
-.bg-class1 {
-  --background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%) !important;
+.level1 {
+  background: linear-gradient(-45deg, #b5ac49 30%, #3ca55c 100%);
+  background-size: 200% 200%;
+  animation: FadeAnimation 5s ease infinite;
+  width: 100%;
+  height: 100%;
 }
 
-.bg-class2 {
-  --background: linear-gradient(to top, #f6d365 0%, #f09819 100%) !important;
+.level2 {
+  background: linear-gradient(315deg, #fbb034 0%, #ffdd00 74%);
+  background-size: 200% 200%;
+  animation: FadeAnimation 5s ease infinite;
+  width: 100%;
+  height: 100%;
 }
 
-.bg-class3 {
-  --background: linear-gradient(-60deg, #ff5858 0%, #f09819 100%) !important;
+.level3 {
+  background: linear-gradient(-45deg, #ff9604 30%, #f85514 100%);
+  background-size: 200% 200%;
+  animation: FadeAnimation 5s ease infinite;
+  width: 100%;
+  height: 100%;
 }
 
-.bg-class4 {
-  --background: linear-gradient(to top, #ff0844 0%, #ffb199 100%) !important;
+.level4 {
+  background: linear-gradient(-45deg, #c6426e 30%, #642b73 100%);
+  background-size: 200% 200%;
+  animation: FadeAnimation 5s ease infinite;
+  width: 100%;
+  height: 100%;
 }
 
-.bg-class5 {
-  --background: linear-gradient(to top, #7028e4 0%, #e5b2ca 100%) !important;
+.level5 {
+  background: linear-gradient(-45deg, #8d6475 30%, #7e1fccc9 100%);
+  background-size: 200% 200%;
+  animation: FadeAnimation 5s ease infinite;
+  width: 100%;
+  height: 100%;
 }
 
-.bg-class6{
-  --background: linear-gradient(45deg, #874da2 0%, #c43a30 100%) !important; 
+.level6 {
+  background: linear-gradient(-45deg, #a71d31 30%, #3f0d12 100%);
+  background-size: 200% 200%;
+  animation: FadeAnimation 5s ease infinite;
+  width: 100%;
+  height: 100%;
 }
 
-.header{
+.header {
   --color: light;
 }
 
-.font{
+.font {
   --font-size: 300px;
-}
-
-ion-toolbar {
-  --background-color: transparent;
-  --ion-color-base: transparent !important;
 }
 
 ion-content {
   --overflow: hidden;
+}
+
+p {
+  color: white;
+  margin: 0px;
+  padding: 0px;
+}
+
+@keyframes FadeAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }

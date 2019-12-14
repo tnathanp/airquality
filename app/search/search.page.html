@@ -1,26 +1,35 @@
 <ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="" icon="arrow-back"></ion-back-button>
+    </ion-buttons>
+    <ion-searchbar showCancelButton="focus" [(ngModel)]="query" (keyup)="search($event)"></ion-searchbar>
+  </ion-toolbar>
 </ion-header>
 
-<ion-content class="bg-class">
-  <ion-item>
-    <ion-searchbar showCancelButton="focus" [(ngModel)]="query" (keyup)="Search($event)" ></ion-searchbar>
-  </ion-item>
-  <div *ngIf="data | async as dt ">
-    <ion-label class="header">Cities</ion-label>   
-    <ion-list>
-        <ion-item *ngFor="let item of dt.cities" routerLink="/tabs/home" routerDirection="back">
-          <ion-text>              
-            <p>{{ item.name }}</p>
-          </ion-text>
-        </ion-item>
-    </ion-list>
-    <ion-label>Places</ion-label>
-    <ion-list>
-      <ion-item *ngFor="let item of dt.stations" routerLink="/tabs/home" routerDirection="back">
-          <ion-text>
-              <p>{{ item.name }}</p>
-            </ion-text>
-      </ion-item>
-    </ion-list>
-  </div>
+<ion-content padding class="bg-class">
+  <ion-grid style="height: 100%">
+
+    <ion-row class="ion-justify-content-center" style="flex-direction: column">
+      <div *ngIf="data | async as dt ">
+        <ion-item>Cities</ion-item>
+        <ion-list>
+          <ion-item *ngFor="let item of dt.cities" (click)="pushSearch(item.id,'cities',item.name)"
+            routerLink="/tabs/home" routerDirection="back">
+            <ion-icon name="pin"></ion-icon>
+            <ion-text style="margin-top: 5px; margin-bottom: 5px;">&nbsp;&nbsp;{{ item.name }}</ion-text>
+          </ion-item>
+        </ion-list>
+        <ion-item>Places</ion-item>
+        <ion-list>
+          <ion-item *ngFor="let item of dt.stations" (click)="pushSearch(item.id,'stations',item.name)"
+            routerLink="/tabs/home" routerDirection="back">
+            <ion-text style="margin-top: 5px; margin-bottom: 5px;">&nbsp;&nbsp;{{ item.name }}</ion-text>
+          </ion-item>
+        </ion-list>
+      </div>
+    </ion-row>
+
+  </ion-grid>
+
 </ion-content>

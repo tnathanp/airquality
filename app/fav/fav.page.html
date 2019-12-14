@@ -23,36 +23,59 @@
 </ion-content>
 
 <ion-content *ngIf="isLogin">
-  <div [ngClass]="level">
+  <div [ngClass]="bg">
 
     <ion-grid style="height: 100%">
 
-        <ion-row class="ion-justify-content-center" style="height: 100%; flex-direction: column" *ngIf="isLoading">
-          <ion-spinner style="width: 100%" name="crescent" color="light"></ion-spinner>
-        </ion-row>
+      <ion-row class="ion-justify-content-center" style="height: 100%; flex-direction: column" *ngIf="isLoading">
+        <ion-spinner style="width: 100%" name="crescent" color="light"></ion-spinner>
+      </ion-row>
 
-        <ion-row class="ion-justify-content-center" style="height: 100%; flex-direction: column;" *ngIf="!isAdded && !isLoading">
-          <div class="ion-padding">
-            <ion-icon style="width: 100%; font-size: 80px" color="light" name="navigate"></ion-icon>
-          </div>
-          <div class="ion-padding" style="text-align: center;">
-            <ion-text style="font-size: 16px" color="light">It looks like you haven't <br>added any places yet.
-            </ion-text>
-          </div>
-        </ion-row>
+      <ion-row class="ion-justify-content-center" style="height: 100%; flex-direction: column;"
+        *ngIf="!isAdded && !isLoading">
+        <div class="ion-padding">
+          <ion-icon style="width: 100%; font-size: 80px" color="light" name="navigate"></ion-icon>
+        </div>
+        <div class="ion-padding" style="text-align: center;">
+          <ion-text style="font-size: 16px" color="light">It looks like you haven't <br>added any places yet.
+          </ion-text>
+        </div>
+      </ion-row>
 
-        <ion-row class="ion-justify-content-center" style="flex-direction: column; padding-top: 40px" *ngIf="isAdded && !isLoading">
-          <div class="ion-padding" style="text-align: center;">
-            <ion-list>
-              <ion-item>
-                <ion-select interface="popover" class="selecter" [(ngModel)]="location" (ionChange)="showData(location)" [selectedText]="selected">
-                  <ion-select-option *ngFor="let item of (return | async)?.places" value="{{item.id}},{{item.types}},{{item.name}}">{{item.name}}</ion-select-option>
-                </ion-select>
-              </ion-item>
-            </ion-list>
-            <p>value, {{aqi}}</p>
+      <ion-row class="ion-justify-content-center" style="flex-direction: column; padding-top: 40px"
+        *ngIf="isAdded && !isLoading">
+        <div class="ion-padding" style="text-align: center;">
+          <ion-list>
+            <ion-item>
+              <ion-select interface="popover" class="selecter" [(ngModel)]="location" (ionChange)="showData(location)"
+                [selectedText]="selected">
+                <ion-select-option *ngFor="let item of (return | async)?.places"
+                  value="{{item.id}},{{item.types}},{{item.name}}">{{item.name}}</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </ion-list><br><br>
+
+          <ion-row class="ion-justify-content-center" style="height: 100%; flex-direction: column;" *ngIf="isFirst">
+            <div class="ion-padding">
+              <ion-icon style="width: 100%; font-size: 80px" color="light" name="navigate"></ion-icon>
+            </div>
+            <div class="ion-padding" style="text-align: center;">
+              <ion-text style="font-size: 16px" color="light">Please select your saved location.
+              </ion-text>
+            </div>
+          </ion-row>
+
+          <div *ngIf="!isFetching">
+            <p style="font-size: 60px">{{aqi}}</p>
+            <p style="font-size: 20px">{{level}}</p><br><br><br>
+            <p style="font-size: 20px" *ngIf="pm10!==undefined">PM 10 | {{pm10}} µg/m³</p>
+            <p style="font-size: 20px" *ngIf="pm25!==undefined">PM 2.5 | {{pm25}} µg/m³</p>
           </div>
-        </ion-row>
+          <div *ngIf="isFetching">
+            <ion-spinner style="width: 100%" name="crescent" color="light"></ion-spinner>
+          </div>
+        </div>
+      </ion-row>
 
     </ion-grid>
   </div>

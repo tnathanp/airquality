@@ -13,8 +13,9 @@
   width: 100%;
   height: 100%;
 }
+
 .level1 {
-  background: radial-gradient(circle farthest-corner at 10% 20%, rgba(4, 159, 108, 1) 0%, rgba(194, 254, 113, 1) 90.1%);
+  background: linear-gradient(-45deg, #b5ac49 30%, #3ca55c 100%);
   background-size: 200% 200%;
   animation: FadeAnimation 5s ease infinite;
   width: 100%;
@@ -22,7 +23,7 @@
 }
 
 .level2 {
-  background: linear-gradient(-45deg, rgba(255, 230, 69, 1) 3.3%, rgba(255, 157, 73, 1) 96%);
+  background: linear-gradient(315deg, #fbb034 0%, #ffdd00 74%);
   background-size: 200% 200%;
   animation: FadeAnimation 5s ease infinite;
   width: 100%;
@@ -30,7 +31,7 @@
 }
 
 .level3 {
-  background: radial-gradient(circle farthest-corner at 10% 20%, rgba(228, 118, 0, 1) 0%, rgba(247, 189, 2, 1) 90%);
+  background: linear-gradient(-45deg, #ff9604 30%, #f85514 100%);
   background-size: 200% 200%;
   animation: FadeAnimation 5s ease infinite;
   width: 100%;
@@ -38,7 +39,7 @@
 }
 
 .level4 {
-  background: linear-gradient(110.1deg, rgba(241, 115, 30, 1) 18.9%, rgba(231, 29, 54, 1) 90.7%);
+  background: linear-gradient(-45deg, #c6426e 30%, #642b73 100%);
   background-size: 200% 200%;
   animation: FadeAnimation 5s ease infinite;
   width: 100%;
@@ -46,7 +47,15 @@
 }
 
 .level5 {
-  background: radial-gradient(circle farthest-corner at 10% 20%, rgba(210, 36, 129, 1) 0%, rgba(152, 75, 215, 1) 90%);
+  background: linear-gradient(-45deg, #8d6475 30%, #7e1fccc9 100%);
+  background-size: 200% 200%;
+  animation: FadeAnimation 5s ease infinite;
+  width: 100%;
+  height: 100%;
+}
+
+.level6 {
+  background: linear-gradient(-45deg, #a71d31 30%, #3f0d12 100%);
   background-size: 200% 200%;
   animation: FadeAnimation 5s ease infinite;
   width: 100%;
@@ -67,4 +76,10 @@
 
 ion-content {
   --overflow: hidden;
+}
+
+p {
+  color: white;
+  margin: 0px;
+  padding: 0px;
 }

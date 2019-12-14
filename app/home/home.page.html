@@ -1,43 +1,30 @@
 <ion-header>
 </ion-header>
 
-<!--<ion-content class="bg-class5">
-  <ion-item>
-    <ion-searchbar showCancelButton="focus" [(ngModel)]="query" (keyup)="Search($event)" ></ion-searchbar>
-  </ion-item>
-  <div *ngIf="data | async as dt ">
-    <ion-label class="header">Cities</ion-label>   
-    <ion-list>
-        <ion-item *ngFor="let item of dt.cities" (click)="eiei(item.id)">
-          <ion-text>              
-            <p>{{ item.name }}</p>
-          </ion-text>
-        </ion-item>
-    </ion-list>
-    <ion-label>Places</ion-label>
-    <ion-list>
-      <ion-item *ngFor="let item of dt.stations" >
-          <ion-text>
-              <p>{{ item.name }}</p>
-            </ion-text>
-      </ion-item>
-    </ion-list>
-  </div>
-</ion-content>-->
-<ion-content padding *ngIf="data | async as dt " [ngClass]="whatClassIsIt(dt.current.aqi)">
-    <ion-button color="light" fill="clear" shape="round" routerLink="/search/" routerDirection="forward"><ion-icon name="search"></ion-icon>&nbsp;SEARCH</ion-button>
+<ion-content>
+  <div [ngClass]="bg">
     <ion-grid style="height: 80%">
+      <ion-button color="light" fill="clear" style="margin-top: 30px" shape="round" routerLink="/search/"
+        routerDirection="forward">
+        <ion-icon name="search"></ion-icon>&nbsp;SEARCH
+      </ion-button>
       <ion-row class="ion-justify-content-center" style="height: 100%; flex-direction: column">
-        <div class='ion-padding'>
-            <p [ngStyle]="{'color':'white', 'font-size':'60px'}">{{dt.current.aqi}}</p>
-            <p [ngStyle]="{'color':'white', 'font-size':'20px'}">{{whatLevelIsIt(dt.current.aqi)}}</p>
-            <p *ngIf="dt.current.pm10!==undefined" [ngStyle]="{'color':'white', 'font-size':'20px'}">PM 10 | {{dt.current.pm10.aqi}} µg/m³</p>
-            <p *ngIf="dt.current.pm25!==undefined" [ngStyle]="{'color':'white', 'font-size':'20px'}">PM 2.5 | {{dt.current.pm25.aqi}} µg/m³</p>
+        <div class='ion-padding' *ngIf="!isFetching" style="text-align: center;">
+          <p style="font-size: 25px; text-overflow: ellipsis;">{{name}}</p><br><br>
+          <p style="font-size: 60px">{{aqi}}</p>
+          <p style="font-size: 20px">{{level}}</p><br><br><br>
+          <p style="font-size: 20px" *ngIf="pm10!==undefined">PM 10 | {{pm10}} µg/m³</p>
+          <p style="font-size: 20px" *ngIf="pm25!==undefined">PM 2.5 | {{pm25}} µg/m³</p>
 
+
+          <div class="ion-padding">
+            <ion-button expand="block" color="light" fill="outline" (click)="addplaces()" [disabled]="!isLogin || isSaved">SAVE</ion-button>
+          </div>
         </div>
-    
-
+        <div *ngIf="isFetching">
+          <ion-spinner style="width: 100%" name="crescent" color="light"></ion-spinner>
+        </div>
       </ion-row>
     </ion-grid>
-  
-  </ion-content>
+  </div>
+</ion-content>

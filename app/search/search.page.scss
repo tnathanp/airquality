@@ -1,3 +1,17 @@
-.bg-class{
-    --background: linear-gradient(to top, #9795f0 0%, #fbc8d4 100%) !important;
+.bg-class {
+  --background: linear-gradient(to bottom, #9795f0 0%, #fbc8d4 100%) !important;
+}
+
+ion-searchbar {
+  --cancel-button-color: gray;
+  --clear-button-color: gray;
+}
+
+ion-back-button {
+  --color: gray;
+}
+
+ion-text {
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

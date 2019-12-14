@@ -12,11 +12,16 @@ export class FavPage {
   isLogin: boolean = false;
   isAdded: boolean = false;
   isLoading: boolean = true;
+  isFetching: boolean = false;
   account: string = '';
-  level: string = 'default';
-  aqi: number = 0;
+  bg: string = 'default';
   location: string;
   selected: string = '';
+  aqi: number;
+  pm25: string;
+  pm10: string;
+  level: string;
+  isFirst: boolean = true;
 
   constructor(public httpClient: HttpClient) { }
 
@@ -24,7 +29,7 @@ export class FavPage {
   fetch: Observable<any>;
 
   ngOnInit() {
-    localStorage.setItem("selected",'');
+    localStorage.setItem("selected", '');
   }
 
   ionViewWillEnter() {
@@ -45,26 +50,43 @@ export class FavPage {
   }
 
   showData(param: string) {
+    this.isFetching = true;
+    this.isFirst = false;
     var id = param.split(',')[0];
     var types = param.split(',')[1];
     this.selected = param.split(',')[2];
-    localStorage.setItem("selected",this.selected);
+    localStorage.setItem("selected", this.selected);
     this.fetch = this.httpClient.get("http://airqualityapi.herokuapp.com/fetch?q=" + id + "&t=" + types);
     this.fetch.subscribe(
       resp => {
-        console.log(resp);
         var aqi = resp.current.aqi;
         this.aqi = aqi;
+        if (resp.current.pm25 !== undefined) { this.pm25 = resp.current.pm25.concentration; } else { this.pm25 = undefined; }
+        if (resp.current.pm10 !== undefined) { this.pm10 = resp.current.pm25.concentration; } else { this.pm10 = undefined; }
         if (aqi >= 0 && aqi <= 50) {
-          this.level = "level1";
+          this.bg = "level1";
+          this.level = "Good";
+          this.isFetching = false;
         } else if (aqi >= 51 && aqi <= 100) {
-          this.level = "level2";
+          this.bg = "level2";
+          this.level = "Moderate";
+          this.isFetching = false;
         } else if (aqi >= 101 && aqi <= 150) {
-          this.level = "level3";
+          this.bg = "level3";
+          this.level = "Unhealthy for Sensitive Groups";
+          this.isFetching = false;
         } else if (aqi >= 151 && aqi <= 200) {
-          this.level = "level4";
+          this.bg = "level4";
+          this.level = "Unhealthy";
+          this.isFetching = false;
         } else if (aqi >= 201 && aqi <= 300) {
-          this.level = "level5";
+          this.bg = "level5";
+          this.level = "Very Unhealthy";
+          this.isFetching = false;
+        } else if (aqi >= 201 && aqi <= 300) {
+          this.bg = "level6";
+          this.level = "Hazardous";
+          this.isFetching = false;
         }
       })
   }
