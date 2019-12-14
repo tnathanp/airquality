@@ -19,7 +19,7 @@ export class SearchPage implements OnInit {
   data: Observable<any>;
 
   search(ev) {
-    this.data = this.httpClient.get("https://website-api.airvisual.com/v1/search?q=" + ev.target.value + "&units.temperature=celsius&units.distance=kilometer&AQI=US&language=en");
+    this.data = this.httpClient.get("https://airqualityapi.herokuapp.com/search?q=" + ev.target.value);
   }
 
   pushSearch(id: string, type: string, name: string) {
