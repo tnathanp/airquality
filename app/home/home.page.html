@@ -18,10 +18,11 @@
 
 
           <div class="ion-padding">
-            <ion-button expand="block" color="light" fill="outline" (click)="addplaces()" [disabled]="!isLogin || isSaved">SAVE</ion-button>
+            <ion-button expand="block" color="light" fill="outline" (click)="addplaces()"
+              [disabled]="!isLogin || isSaved">SAVE</ion-button>
           </div>
         </div>
-        <div *ngIf="isFetching">
+        <div class="ion-padding" *ngIf="isFetching">
           <ion-spinner style="width: 100%" name="crescent" color="light"></ion-spinner>
         </div>
       </ion-row>

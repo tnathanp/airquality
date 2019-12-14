@@ -37,7 +37,7 @@ export class HomePage implements OnInit {
 
   ngOnInit() {
     this.checkplaces();
-    localStorage.setItem("bg", '');
+    localStorage.setItem("bg", 'default');
     localStorage.setItem("search_id", "WJv6Pqdvj8ph9xkuZ");
     localStorage.setItem("search_type", "cities");
     localStorage.setItem("search_name", "Bangkok");
