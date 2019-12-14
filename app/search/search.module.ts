@@ -1,19 +1,22 @@
-import { IonicModule } from '@ionic/angular';
-import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { HomePage } from './home.page';
+
+import { IonicModule } from '@ionic/angular';
+
+import { SearchPageRoutingModule } from './search-routing.module';
+
+import { SearchPage } from './search.page';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
-    IonicModule,
     CommonModule,
     FormsModule,
+    IonicModule,
     HttpClientModule,
-    RouterModule.forChild([{ path: '', component: HomePage }])
+    SearchPageRoutingModule
   ],
-  declarations: [HomePage]
+  declarations: [SearchPage]
 })
-export class HomePageModule {}
+export class SearchPageModule {}
