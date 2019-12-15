@@ -10,6 +10,8 @@ import { Observable } from 'rxjs';
 export class SearchPage implements OnInit {
 
   query: string;
+  showCities: boolean = true;
+  showPlaces: boolean = true;
 
   constructor(public httpClient: HttpClient) { }
 
@@ -20,6 +22,12 @@ export class SearchPage implements OnInit {
 
   search(ev) {
     this.data = this.httpClient.get("https://airqualityapi.herokuapp.com/search?q=" + ev.target.value);
+  }
+
+  segmentChanged(ev) {
+    if(ev.target.value == "all") {this.showCities = true; this.showPlaces = true}
+    else if(ev.target.value == "cities") {this.showCities = true; this.showPlaces = false}
+    else {this.showCities = false; this.showPlaces = true}
   }
 
   pushSearch(id: string, type: string, name: string) {

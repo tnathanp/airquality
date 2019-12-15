@@ -12,16 +12,27 @@
 
     <ion-row class="ion-justify-content-center" style="flex-direction: column">
       <div *ngIf="data | async as dt ">
-        <ion-item>Cities</ion-item>
-        <ion-list>
+        <ion-segment (ionChange)="segmentChanged($event)" color="light" value="all">
+          <ion-segment-button value="all">
+            <ion-label>All</ion-label>
+          </ion-segment-button>
+          <ion-segment-button value="cities">
+            <ion-label>Cities</ion-label>
+          </ion-segment-button>
+          <ion-segment-button value="stations">
+            <ion-label>Places</ion-label>
+          </ion-segment-button>
+        </ion-segment><br>
+        <ion-item *ngIf="showCities">Cities</ion-item>
+        <ion-list *ngIf="showCities">
           <ion-item *ngFor="let item of dt.cities" (click)="pushSearch(item.id,'cities',item.name)"
             routerLink="/tabs/home" routerDirection="back">
             <ion-icon name="pin"></ion-icon>
             <ion-text style="margin-top: 5px; margin-bottom: 5px;">&nbsp;&nbsp;{{ item.name }}</ion-text>
           </ion-item>
         </ion-list>
-        <ion-item>Places</ion-item>
-        <ion-list>
+        <ion-item *ngIf="showPlaces">Places</ion-item>
+        <ion-list *ngIf="showPlaces">
           <ion-item *ngFor="let item of dt.stations" (click)="pushSearch(item.id,'stations',item.name)"
             routerLink="/tabs/home" routerDirection="back">
             <ion-text style="margin-top: 5px; margin-bottom: 5px;">&nbsp;&nbsp;{{ item.name }}</ion-text>
